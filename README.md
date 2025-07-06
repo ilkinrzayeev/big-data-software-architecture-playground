@@ -45,12 +45,10 @@ This repository is a comprehensive, real-world Java project that implements the 
 
 ## Technologies Used
 
-- ![Java](https://img.shields.io/badge/Java-17+-red?logo=java&logoColor=white) Java 17+
-- ![JUnit](https://img.shields.io/badge/JUnit-5-green?logo=java&logoColor=white) JUnit 5
-- ![Gradle](https://img.shields.io/badge/Gradle-Build-blue?logo=gradle&logoColor=white) Gradle
-- ![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker&logoColor=white) Docker (for DB/Messaging)
-- ![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-brightgreen?logo=mermaid&logoColor=white) Mermaid (for diagrams)
-
----
+[![Java](https://img.shields.io/badge/Java-17+-red?logo=java&logoColor=white)](https://www.java.com/)
+[![JUnit](https://img.shields.io/badge/JUnit-5-green?logo=java&logoColor=white)](https://junit.org/)
+[![Gradle](https://img.shields.io/badge/Gradle-Build-blue?logo=gradle&logoColor=white)](https://gradle.org/)
+[![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-brightgreen?logo=mermaid&logoColor=white)](https://mermaid-js.github.io/)
 
 ## Project Structure
