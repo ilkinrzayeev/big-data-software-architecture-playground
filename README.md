@@ -6,6 +6,8 @@
 [![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-brightgreen?logo=mermaid&logoColor=white)](https://mermaid-js.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Uploading Screenshot 2025-07-06 at 18.58.16.png…]()
+
 
 ---
 
