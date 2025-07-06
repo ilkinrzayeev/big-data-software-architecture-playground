@@ -36,8 +36,8 @@ Each module demonstrates advanced software engineering, distributed systems, mon
 - **Highlights:**  
   - Custom hash table and linked list for storage  
   - Thread-safe operations  
-  - Expiry and eviction logic  
-  - 150+ lines of JUnit tests (edge cases, concurrency, stress)
+  - Expiry and eviction logic
+  - 
 - **Usage Example:**
   ```java
   SimpleAgedCache cache = new SimpleAgedCache();
