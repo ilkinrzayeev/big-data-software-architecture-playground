@@ -97,33 +97,6 @@ Each module demonstrates advanced software engineering, distributed systems, mon
 [![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-brightgreen?logo=mermaid&logoColor=white)](https://mermaid-js.github.io/)
 
 ---
-
-## Project Structure
-big-data-software-architecture-playground/
-src/
-main/
-java/
-com/
-aliagasiyev/
-bigdata/
-cache/
-blockchain/
-monitoring/
-messaging/
-test/
-java/
-com/
-aliagasiyev/
-bigdata/
-cache/
-blockchain/
-monitoring/
-messaging/
-build.gradle.kts
-settings.gradle.kts
-README.md
----
-
 ## Architecture Diagram
 
 ```mermaid
