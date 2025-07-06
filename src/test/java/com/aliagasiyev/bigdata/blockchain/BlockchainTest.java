@@ -1,6 +1,10 @@
 package com.aliagasiyev.bigdata.blockchain;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BlockchainTest {
@@ -68,4 +72,99 @@ public class BlockchainTest {
             throw new RuntimeException("Reflection failed", e);
         }
     }
-}
+        @Test
+        void addingManyBlocksWorks() {
+            Blockchain chain = new Blockchain();
+            int n = 1000;
+            for (int i = 0; i < n; i++) {
+                chain.addBlock("Block " + i);
+            }
+            assertEquals(n + 1, chain.size());
+            assertEquals("Block " + (n - 1), chain.getLatestBlock().getData());
+        }
+
+        @Test
+        void allBlockHashesAreUnique() {
+            Blockchain chain = new Blockchain();
+            int n = 100;
+            Set<String> hashes = new HashSet<>();
+            for (int i = 0; i < n; i++) {
+                chain.addBlock("Block " + i);
+            }
+            for (int i = 0; i < chain.size(); i++) {
+                String hash = chain.getBlockAt(i).getHash();
+                assertFalse(hashes.contains(hash));
+                hashes.add(hash);
+            }
+        }
+
+        @Test
+        void blockIndexIsSequential() {
+            Blockchain chain = new Blockchain();
+            int n = 50;
+            for (int i = 0; i < n; i++) {
+                chain.addBlock("Block " + i);
+            }
+            for (int i = 0; i < chain.size(); i++) {
+                assertEquals(i, chain.getBlockAt(i).getIndex());
+            }
+        }
+
+        @Test
+        void blockTimestampsAreNonDecreasing() {
+            Blockchain chain = new Blockchain();
+            int n = 20;
+            for (int i = 0; i < n; i++) {
+                chain.addBlock("Block " + i);
+            }
+            long prev = 0;
+            for (int i = 0; i < chain.size(); i++) {
+                long ts = chain.getBlockAt(i).getTimestamp();
+                assertTrue(ts >= prev);
+                prev = ts;
+            }
+        }
+
+        @Test
+        void getBlockAtThrowsForInvalidIndex() {
+            Blockchain chain = new Blockchain();
+            assertThrows(IndexOutOfBoundsException.class, () -> chain.getBlockAt(-1));
+            assertThrows(IndexOutOfBoundsException.class, () -> chain.getBlockAt(100));
+        }
+
+        @Test
+        void chainRemainsValidAfterManyAdds() {
+            Blockchain chain = new Blockchain();
+            for (int i = 0; i < 500; i++) {
+                chain.addBlock("Block " + i);
+                assertTrue(chain.isValid());
+            }
+        }
+
+        @Test
+        void blockEqualsAndHashCodeWork() {
+            Block b1 = new Block(1, 12345L, "data", "prevHash");
+            Block b2 = new Block(1, 12345L, "data", "prevHash");
+            assertEquals(b1, b2);
+            assertEquals(b1.hashCode(), b2.hashCode());
+        }
+
+        // Concurrency test (not real blockchain, but for demo)
+        @Test
+        void concurrentAddBlock() throws InterruptedException {
+            Blockchain chain = new Blockchain();
+            int threads = 10;
+            int blocksPerThread = 20;
+            Thread[] arr = new Thread[threads];
+            for (int t = 0; t < threads; t++) {
+                arr[t] = new Thread(() -> {
+                    for (int i = 0; i < blocksPerThread; i++) {
+                        chain.addBlock(Thread.currentThread().getName() + "-" + i);
+                    }
+                });
+            }
+            for (Thread t : arr) t.start();
+            for (Thread t : arr) t.join();
+            assertEquals(1 + threads * blocksPerThread, chain.size());
+        }
+    }

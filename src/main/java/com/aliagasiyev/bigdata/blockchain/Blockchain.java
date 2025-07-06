@@ -1,7 +1,10 @@
 package com.aliagasiyev.bigdata.blockchain;
 
+/**
+ * Represents a simple blockchain using a custom singly linked list.
+ */
 public class Blockchain {
-    private final Node head;
+    private Node head;
     private int size;
 
     private static class Node {
@@ -34,6 +37,17 @@ public class Blockchain {
 
     public int size() { return size; }
 
+    public Block getBlockAt(int index) {
+        Node current = head;
+        int i = 0;
+        while (current != null) {
+            if (i == index) return current.block;
+            current = current.next;
+            i++;
+        }
+        throw new IndexOutOfBoundsException("No block at index " + index);
+    }
+
     public boolean isValid() {
         Node current = head;
         while (current.next != null) {
@@ -45,4 +59,5 @@ public class Blockchain {
         }
         return true;
     }
+
 }
