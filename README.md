@@ -160,19 +160,9 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
 ## Lessons Learned
 
 - Deep understanding of custom data structures and thread-safety in Java
 - Real-world application of TDD and advanced testing strategies
 - Architectural trade-offs in distributed systems and Big Data
 - Documentation, code clarity, and professional project structure
-
----
-
-**This project goes far beyond “toy” or “copy-paste” code—every component is designed for clarity, extensibility, and real-world applicability.**
