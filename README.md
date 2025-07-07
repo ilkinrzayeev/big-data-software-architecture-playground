@@ -1,4 +1,4 @@
-# Big Data Software Architecture Playground
+# 🚀 Big Data Software Architecture Playground
 
 [![Java](https://img.shields.io/badge/Java-17+-red?logo=java&logoColor=white)](https://www.java.com/)
 [![JUnit](https://img.shields.io/badge/JUnit-5-green?logo=java&logoColor=white)](https://junit.org/)
@@ -6,20 +6,18 @@
 [![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-brightgreen?logo=mermaid&logoColor=white)](https://mermaid-js.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Uploading Screenshot 2025-07-06 at 18.58.16.png…]()
-
 
 ---
 
-## Overview
+## 📝 Overview
 
-This repository is a comprehensive, production-grade Java project inspired by the [University of Colorado Boulder’s “Fundamentals of Software Architecture for Big Data”](https://www.coursera.org/learn/fundamentals-of-software-architecture-for-big-data) course.
+This repository is a comprehensive, production-grade Java project inspired by the [University of Colorado Boulder's "Fundamentals of Software Architecture for Big Data"](https://www.coursera.org/learn/fundamentals-of-software-architecture-for-big-data) course.
 
-Each module demonstrates advanced software engineering, distributed systems, monitoring, and messaging solutions with real-world code, TDD, and deep documentation. All core data structures are implemented from scratch—no built-in Java collections are used for the main logic.
+Each module demonstrates advanced software engineering, distributed systems, monitoring, and messaging solutions with real-world code, TDD, and deep documentation. All core data structures are implemented from scratch—**no built-in Java collections are used for the main logic**.
 
 ---
 
-## Table of Contents
+## 📚 Table of Contents
 
 - [Modules](#modules)
 - [Technologies Used](#technologies-used)
@@ -27,19 +25,19 @@ Each module demonstrates advanced software engineering, distributed systems, mon
 - [Architecture Diagram](#architecture-diagram)
 - [How to Run](#how-to-run)
 - [Contributing](#contributing)
+- [Lessons Learned](#lessons-learned)
 - [License](#license)
 
 ---
 
-## Modules
+## 🧩 Modules
 
-### 1. Software Engineering Overview (Aged Cache)
+### 1. 🗃️ Software Engineering Overview (Aged Cache)
 - **Goal:** Implement a custom O(1) cache with TTL-based eviction, no built-in collections, full TDD, and concurrency support.
 - **Highlights:**  
   - Custom hash table and linked list for storage  
   - Thread-safe operations  
   - Expiry and eviction logic
-  - 
 - **Usage Example:**
   ```java
   SimpleAgedCache cache = new SimpleAgedCache();
@@ -47,7 +45,7 @@ Each module demonstrates advanced software engineering, distributed systems, mon
   Object value = cache.get("key");
   ```
 
-### 2. Fundamentals of Software Architecture (Blockchain)
+### 2. 🔗 Fundamentals of Software Architecture (Blockchain)
 - **Goal:** Build a custom singly linked list blockchain with SHA-256 hashing, genesis block, and chain validation.
 - **Highlights:**  
   - No built-in List/Map  
@@ -61,7 +59,7 @@ Each module demonstrates advanced software engineering, distributed systems, mon
   Block latest = chain.getLatestBlock();
   ```
 
-### 3. Production Software Fundamentals (Monitoring)
+### 3. 📈 Production Software Fundamentals (Monitoring)
 - **Goal:** Thread-safe service monitoring, background job simulation, and real-time metrics with stress and concurrency tests.
 - **Highlights:**  
   - Service availability calculation  
@@ -75,7 +73,7 @@ Each module demonstrates advanced software engineering, distributed systems, mon
   double availability = service.getAvailability();
   ```
 
-### 4. Production Databases & Messaging (Message Queue)
+### 4. 📬 Production Databases & Messaging (Message Queue)
 - **Goal:** Custom message queue with thread-safety, capacity management, and advanced test coverage.
 - **Highlights:**  
   - Custom queue (no built-in collections)  
@@ -90,7 +88,7 @@ Each module demonstrates advanced software engineering, distributed systems, mon
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 [![Java](https://img.shields.io/badge/Java-17+-red?logo=java&logoColor=white)](https://www.java.com/)
 [![JUnit](https://img.shields.io/badge/JUnit-5-green?logo=java&logoColor=white)](https://junit.org/)
@@ -99,7 +97,26 @@ Each module demonstrates advanced software engineering, distributed systems, mon
 [![Mermaid](https://img.shields.io/badge/Mermaid-Diagrams-brightgreen?logo=mermaid&logoColor=white)](https://mermaid-js.github.io/)
 
 ---
-## Architecture Diagram
+
+## 🗂️ Project Structure
+
+```
+Parallel-Programming-in-Java/
+├── miniproject_0/
+├── miniproject_1/
+├── miniproject_2/
+├── miniproject_3/
+├── miniproject_4/
+├── quiz1.pdf
+├── quiz2.pdf
+├── quiz3.pdf
+├── quiz4.pdf
+└── README.md
+```
+
+---
+
+## 🏗️ Architecture Diagram
 
 ```mermaid
 graph TD
@@ -114,7 +131,7 @@ graph TD
 
 ---
 
-## How to Run
+## 🚀 How to Run
 
 1. **Clone the repository:**
    ```bash
@@ -125,19 +142,29 @@ graph TD
    ```bash
    ./gradlew build
    ```
-3. **Explore each module’s README for technical deep-dives and usage examples.**
+3. **Explore each module's README for technical deep-dives and usage examples.**
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
 
 ---
 
-## Lessons Learned
+## 🎓 Lessons Learned
 
 - Deep understanding of custom data structures and thread-safety in Java
 - Real-world application of TDD and advanced testing strategies
 - Architectural trade-offs in distributed systems and Big Data
 - Documentation, code clarity, and professional project structure
+
+---
+
+## 📝 License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+---
+
+**Happy coding! 🚀** 
