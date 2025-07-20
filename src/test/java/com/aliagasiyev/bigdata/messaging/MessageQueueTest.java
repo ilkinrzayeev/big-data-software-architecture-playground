@@ -125,4 +125,37 @@ class MessageQueueTest {
         assertTrue(queue.isEmpty());
     }
 
+    @Test
+    void queueWithCapacityOneWorks() {
+        MessageQueue<String> queue = new MessageQueue<>(1);
+        queue.enqueue("a");
+        assertTrue(queue.isFull());
+        assertEquals("a", queue.dequeue());
+        assertTrue(queue.isEmpty());
+    }
+
+    @Test
+    void enqueueAfterDequeueFreesSpace() {
+        MessageQueue<Integer> queue = new MessageQueue<>(2);
+        queue.enqueue(1);
+        queue.enqueue(2);
+        assertEquals(1, queue.dequeue());
+        queue.enqueue(3);
+        assertEquals(2, queue.dequeue());
+        assertEquals(3, queue.dequeue());
+        assertTrue(queue.isEmpty());
+    }
+
+    @Test
+    void handlesDuplicateValues() {
+        MessageQueue<String> queue = new MessageQueue<>(3);
+        queue.enqueue("dup");
+        queue.enqueue("dup");
+        queue.enqueue("dup");
+        assertEquals("dup", queue.dequeue());
+        assertEquals("dup", queue.dequeue());
+        assertEquals("dup", queue.dequeue());
+        assertTrue(queue.isEmpty());
+    }
+
 }
