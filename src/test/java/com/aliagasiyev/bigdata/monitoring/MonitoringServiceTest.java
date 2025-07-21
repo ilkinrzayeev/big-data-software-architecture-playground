@@ -4,7 +4,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MonitoringServiceTest {
@@ -108,5 +107,53 @@ class MonitoringServiceTest {
             service.recordRequest(i % 2 == 0);
         }
         assertEquals(50.0, service.getAvailability(), 0.0001);
+    }
+
+    @Test
+    void testMultipleResets() {
+        MonitoringService service = new MonitoringService();
+        service.recordRequest(false);
+        service.reset();
+        service.recordRequest(true);
+        assertEquals(100.0, service.getAvailability());
+        assertEquals(0, service.getLastJobRun());
+    }
+
+    @Test
+    void testAvailabilityAfterBackgroundJob() {
+        MonitoringService service = new MonitoringService();
+        service.recordRequest(true);
+        service.runBackgroundJob();
+        assertEquals(100.0, service.getAvailability());
+        assertTrue(service.getLastJobRun() > 0);
+    }
+
+    @Test
+    void testRapidRequestRecording() {
+        MonitoringService service = new MonitoringService();
+        for (int i = 0; i < 1000; i++) {
+            service.recordRequest(i % 4 != 0);
+        }
+        assertEquals(75.0, service.getAvailability(), 0.0001);
+    }
+
+    @Test
+    void testLastJobRunDoesNotChangeOnRecordRequest() {
+        MonitoringService service = new MonitoringService();
+        service.recordRequest(true);
+        long before = service.getLastJobRun();
+        service.recordRequest(false);
+        long after = service.getLastJobRun();
+        assertEquals(before, after);
+    }
+
+    @Test
+    void testResetAfterBackgroundJob() {
+        MonitoringService service = new MonitoringService();
+        service.runBackgroundJob();
+        service.recordRequest(false);
+        service.reset();
+        assertEquals(100.0, service.getAvailability());
+        assertEquals(0, service.getLastJobRun());
     }
 }
