@@ -26,7 +26,6 @@ Each module demonstrates advanced software engineering, distributed systems, mon
 - [How to Run](#how-to-run)
 - [Contributing](#contributing)
 - [Lessons Learned](#lessons-learned)
-- [License](#license)
 
 ---
 
